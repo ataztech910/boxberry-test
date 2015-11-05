@@ -12,7 +12,6 @@ cabinetApp.controller('mainForm',['$scope','$http',function($scope, $http){
 	$scope.weight = 1.2;
 	$scope.cost = 0;
 	$scope.result=0;
-	
 		
 	$scope.getCityList = function(){
 		$http({
@@ -28,8 +27,9 @@ cabinetApp.controller('mainForm',['$scope','$http',function($scope, $http){
 	};
 	 
 	$scope.doit = function(){
-		$('.loader').show();
+		
 		if($scope.data['currcityTo']>0){
+			$('.loader').show();	
 			$('#citylist').removeClass('has-error');
 			$http({
 		    url: server+method[1]+"/"+$scope.userId+"?weight="+$scope.weight+"&target="+$scope.data['currcityTo']+"&ordersum="+$scope.cost+"&deliverysum=0&paysum=0", 
